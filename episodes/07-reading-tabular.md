@@ -422,7 +422,28 @@ Note that `help(to_csv)` or `help(pd.to_csv)` throws an error! This is due to th
 a member function of DataFrames. This means you can only call it on an instance of a DataFrame
 e.g., `data_americas.to_csv` or `data_oceania.to_csv`
 
+```python
+# Import required libraries
+import pandas as pd
+import requests
 
+# Define the DOI (Digital Object Identifier) for the Zenodo record
+doi = '10.5281/zenodo.14768557'
+
+# Query Zenodo's API to fetch metadata for the specified DOI.
+# The 'q' parameter filters records by DOI, and the JSON response is stored in 'response'.
+response = requests.get(
+    'https://zenodo.org/api/records',
+    params={'q': f'doi:{doi}'}
+).json()
+
+# Read the CSV file into a pandas DataFrame (limited to first 10 rows)
+#df = pd.read_csv(url).head(10)
+df = pd.read_csv(url)
+
+# Save the entire DataFrame to a CSV file named 'gapminder_data.csv':
+df.to_csv('gapminder_data.csv', index=False) 
+```
 
 :::::::::::::::::::::::::
 
