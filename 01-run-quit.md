@@ -7,7 +7,7 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Launch the JupyterLab server.
-- Create a NEW Python script.
+- Create a new Python script.
 - Create a Jupyter notebook.
 - Shutdown the JupyterLab server.
 - Understand the difference between a Python script and a Jupyter notebook.
