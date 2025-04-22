@@ -451,7 +451,7 @@ about data.</a></li>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Reading Tabular Data into DataFrames</h1>
-        <p>Last updated on 2025-04-02 |
+        <p>Last updated on 2025-04-22 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/07-reading-tabular.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -741,7 +741,7 @@ should be in the same directory as
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To read in a CSV, we use <code>pd.read_csv</code> and pass the
 filename <code>'data/gapminder_gdp_americas.csv'</code> to it. We also
@@ -782,7 +782,7 @@ data?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>We can check out the first five rows of <code>data_americas</code>
 by executing <code>data_americas.head()</code> which lets us view the
@@ -912,7 +912,7 @@ of code by ‘chaining’ the commands:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>We need to specify the path to the file of interest in the call to
 <code>pd.read_csv</code>. We first need to ‘jump’ out of the folder
@@ -949,7 +949,7 @@ can use <code>help</code> to get information on how to use
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>In order to write the DataFrame <code>data_americas</code> to a file
 called <code>processed.csv</code>, execute the following command:</p>
@@ -972,6 +972,30 @@ a global Pandas function, but a member function of DataFrames. This
 means you can only call it on an instance of a DataFrame e.g.,
 <code>data_americas.to_csv</code> or
 <code>data_oceania.to_csv</code></p>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="co"># Import required libraries</span></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a><span class="co"># Define the DOI (Digital Object Identifier) for the Zenodo record</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>doi <span class="op">=</span> <span class="st">'10.5281/zenodo.14768557'</span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a><span class="co"># Query Zenodo's API to fetch metadata for the specified DOI.</span></span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a><span class="co"># The 'q' parameter filters records by DOI, and the JSON response is stored in 'response'.</span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a>response <span class="op">=</span> requests.get(</span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a>    <span class="st">'https://zenodo.org/api/records'</span>,</span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a>    params<span class="op">=</span>{<span class="st">'q'</span>: <span class="ss">f'doi:</span><span class="sc">{</span>doi<span class="sc">}</span><span class="ss">'</span>}</span>
+<span id="cb26-13"><a href="#cb26-13" tabindex="-1"></a>).json()</span>
+<span id="cb26-14"><a href="#cb26-14" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" tabindex="-1"></a><span class="co"># Read the CSV file into a pandas DataFrame (limited to first 10 rows)</span></span>
+<span id="cb26-16"><a href="#cb26-16" tabindex="-1"></a><span class="co">#df = pd.read_csv(url).head(10)</span></span>
+<span id="cb26-17"><a href="#cb26-17" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb26-18"><a href="#cb26-18" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" tabindex="-1"></a><span class="co"># Save the entire DataFrame to a CSV file named 'gapminder_data.csv':</span></span>
+<span id="cb26-20"><a href="#cb26-20" tabindex="-1"></a>df.to_csv(<span class="st">'gapminder_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>) </span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1055,7 +1079,7 @@ data.</li>
   "url": "https://swcarpentry.github.io/python-novice-gapminder/07-reading-tabular.html",
   "identifier": "https://swcarpentry.github.io/python-novice-gapminder/07-reading-tabular.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2025-04-02",
+  "dateModified": "2025-04-22",
   "datePublished": "2025-04-22"
 }
 
