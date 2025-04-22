@@ -421,6 +421,7 @@ help(pd.read_csv)
 Note that `help(to_csv)` or `help(pd.to_csv)` throws an error! This is due to the fact that `to_csv` is not a global Pandas function, but
 a member function of DataFrames. This means you can only call it on an instance of a DataFrame
 e.g., `data_americas.to_csv` or `data_oceania.to_csv`
+
 ::::::::::::::::::::::::::::::::::::::::: callout
 
 ## Alternative Data Sources: Generalist Repositories
@@ -444,6 +445,7 @@ These repositories assign DOIs (Digital Object Identifiers) to datasets, making 
 For this lesson, we’ve provided the data via GitHub for simplicity, but we encourage you to explore these repositories for your own work.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ```python
 # Import required libraries
 import pandas as pd
