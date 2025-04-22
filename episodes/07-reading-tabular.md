@@ -424,25 +424,14 @@ e.g., `data_americas.to_csv` or `data_oceania.to_csv`
 
 ::::::::::::::::::::::::::::::::::::::::: callout
 
-## Alternative Data Sources: Generalist Repositories
-
-In addition to platforms like GitHub, researchers often use generalist repositories to store, share, and access datasets. These repositories are designed to preserve research outputs (like data, code, and workflows) in a citable, discoverable, and standardized way. They are particularly valuable for ensuring long-term accessibility and reproducibility of research.
+## REMINDER -  Data Sources: Generalist Repositories
 
 ### NIH-GREI Recommended Repositories
-Under the NIH Generalist Repository Ecosystem Initiative ([GREI](https://datascience.nih.gov/data-ecosystem/generalist-repository-ecosystem-initiative)), several generalist repositories are recognized for hosting biomedical and scientific data. These include:
+Under the NIH Generalist Repository Ecosystem Initiative ([GREI](https://datascience.nih.gov/data-ecosystem/generalist-repository-ecosystem-initiative)), several generalist repositories are recognized for hosting biomedical and scientific data.
 
 * Zenodo ([zenodo.org](https://about.zenodo.org/)): An open repository for EU-funded research but widely used globally.
-* Dryad ([datadryad.org](https://datadryad.org/about)): A nonprofit repository focused on publishing and preserving research data.
 
-These repositories assign DOIs (Digital Object Identifiers) to datasets, making them easier to cite and track.
-
-### Why Use Generalist Repositories?
-
-* Long-term preservation: Ensures data remains accessible beyond project lifetimes.
-* Compliance: Meets funder (e.g., NIH) and publisher requirements for data sharing.
-* Interoperability: Standardized metadata makes data reusable across disciplines.
-
-For this lesson, we’ve provided the data via GitHub for simplicity, but we encourage you to explore these repositories for your own work.
+The following example uses Zenodo.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
